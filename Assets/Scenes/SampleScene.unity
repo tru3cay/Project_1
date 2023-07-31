@@ -545,7 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74dede89249e314fb97734d6c522a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isShooting: 0
+  isShooting: 1
   bulletPrefab: {fileID: 1489877029}
   shootDelay: 0.5
   shootTime: 0
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1023553999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7705a414274c6d46903f9f232379f39, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e6371d5efd9bf84fa4435282f4a8050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mouseWorldPos: {x: 0, y: 0, z: 0}
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1984191808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4a0c0b6668cc44b956b1ff10bbaf01, type: 3}
+  m_Script: {fileID: 11500000, guid: 830a8bcd717b8c34093f2430b2c684f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:

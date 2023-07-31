@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
 
 
 
-    private void Awake()
+    void Awake()
     {
         if (InputManager.instance != null) Debug.LogWarning("Only 1 Input manager allow to exist");
         InputManager.instance = this;
@@ -31,7 +31,7 @@ public class InputManager : MonoBehaviour
         this.mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
     //press to shoot
-    private void Update()
+    void Update()
     {
         this.GetMousePress();
     }
