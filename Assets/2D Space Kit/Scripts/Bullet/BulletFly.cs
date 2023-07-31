@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletFly : MonoBehaviour
 {
     [SerializeField] protected int movespeed = 1;
-    [SerializeField] protected Vector3 direction = Vector3.up;
+    [SerializeField] protected Vector3 direction = Vector3.right;
 
     void Update()
     {
