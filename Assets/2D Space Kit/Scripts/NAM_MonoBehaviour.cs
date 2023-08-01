@@ -12,6 +12,10 @@ public class NAM_MonoBehaviour : MonoBehaviour
     {
         this.LoadComponents();
     }
+    protected virtual void Start()
+    {
+        //override
+    }
     protected virtual void LoadComponents()
     {
         //override
