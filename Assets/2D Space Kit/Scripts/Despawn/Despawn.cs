@@ -4,7 +4,10 @@ using UnityEngine;
 
 public abstract class Despawn : NAM_MonoBehaviour
 {
-    protected abstract bool CanDespawn();
+    protected virtual void FixedUpdate()
+    {
+        this.Despawning();
+    }
 
     protected virtual void Despawning()
     {
@@ -23,8 +26,6 @@ public abstract class Despawn : NAM_MonoBehaviour
 
     }
 
-    protected virtual void FixedUpdate()
-    {
-        this.Despawning();
-    }
+    protected abstract bool CanDespawn();
+
 }
