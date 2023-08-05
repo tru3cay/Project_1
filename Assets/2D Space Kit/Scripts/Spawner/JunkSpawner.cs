@@ -7,7 +7,7 @@ public class JunkSpawner : Spawner
     protected static JunkSpawner instance;
     public static JunkSpawner Instance { get => instance; }
 
-    public static string bulletOne = "Meteorite_1(Asteroid 1)";
+    public static string meteoriteOne = "Meteorite_1(Asteroid 1)";
 
     protected override void Awake()
     {

@@ -460,6 +460,8 @@ GameObject:
   m_Component:
   - component: {fileID: 226545124}
   - component: {fileID: 226545125}
+  - component: {fileID: 226545127}
+  - component: {fileID: 226545126}
   m_Layer: 0
   m_Name: JunkSpawner
   m_TagString: Untagged
@@ -500,6 +502,32 @@ MonoBehaviour:
   prefabs:
   - {fileID: 408135578}
   poolObjs: []
+--- !u!114 &226545126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226545122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b430f392875e54e40aba25df7a35798c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  junkSpawner: {fileID: 0}
+--- !u!114 &226545127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226545122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77b9e4a337b8cf44bbe7255e689503f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  junkCtrl: {fileID: 226545126}
 --- !u!1 &294343679
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &408135578
 Transform:
   m_ObjectHideFlags: 0
