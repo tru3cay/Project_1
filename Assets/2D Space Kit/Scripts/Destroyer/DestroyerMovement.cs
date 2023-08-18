@@ -7,7 +7,7 @@ public class DestroyerMovement : MonoBehaviour
     [SerializeField] protected Vector3 targetPosition;
     [SerializeField] protected float speed = 0.1f;
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         this.GetTargetPosition();
         this.LootAtTarget();

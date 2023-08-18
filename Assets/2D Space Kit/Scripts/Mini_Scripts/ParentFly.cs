@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ParentFly : NAM_MonoBehaviour
 {
-    [SerializeField] protected float moveSpeed = 1;
+    [SerializeField] protected float moveSpeed = 5;
     [SerializeField] protected Vector3 direction = Vector3.right;
 
     void Update()
