@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class Spawner : NAM_MonoBehaviour
 {
+    [SerializeField] protected int spawnedCount = 0;
+    public int SpawnedCount => spawnedCount;
+
     [SerializeField] protected Transform holder;
     [SerializeField] protected List<Transform> prefabs;
     [SerializeField] protected List<Transform> poolObjs;
@@ -53,11 +56,19 @@ public abstract class Spawner : NAM_MonoBehaviour
             return null;
         }
 
+        return this.Spawn(prefab,spawnPos,rotation);
+    }
+
+    public virtual Transform Spawn(Transform prefab, Vector3 spawnPos, Quaternion rotation)
+    {
         Transform newPrefab = this.GetObjectFromPool(prefab);
         newPrefab.SetLocalPositionAndRotation(spawnPos, rotation);
+
         newPrefab.parent = this.holder;
+        this.spawnedCount++;
         return newPrefab;
     }
+
 
     protected virtual Transform GetObjectFromPool(Transform prefab)
     {
@@ -78,6 +89,7 @@ public abstract class Spawner : NAM_MonoBehaviour
     {
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
+        this.spawnedCount--;
     }
 
     public virtual Transform GetPrefabByName(string prefabName)
@@ -87,5 +99,11 @@ public abstract class Spawner : NAM_MonoBehaviour
             if(prefab.name == prefabName) return prefab;
         }
         return null;
+    }
+
+    public virtual Transform RandomPrefab()
+    {
+        int rand = Random.Range(0, this.prefabs.Count);
+        return this.prefabs[rand];
     }
 }
