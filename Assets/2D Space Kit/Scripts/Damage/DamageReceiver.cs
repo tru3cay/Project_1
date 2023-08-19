@@ -23,6 +23,12 @@ public class DamageReceiver : NAM_MonoBehaviour
         this.Reborn();
     }
 
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        this.Reborn();
+    }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
