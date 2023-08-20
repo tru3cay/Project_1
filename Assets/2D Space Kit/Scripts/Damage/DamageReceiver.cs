@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class DamageReceiver : NAM_MonoBehaviour
+public abstract class DamageReceiver : NAM_MonoBehaviour
 {
     [Header("Damage Receiver")]
     [SerializeField] protected SphereCollider sphereCollider;
@@ -79,8 +79,5 @@ public class DamageReceiver : NAM_MonoBehaviour
         this.OnDead();
     }
 
-    protected virtual void OnDead()
-    {
-        //override
-    }
+    protected abstract void OnDead();
 }

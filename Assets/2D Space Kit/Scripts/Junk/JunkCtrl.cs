@@ -24,7 +24,7 @@ public class JunkCtrl : NAM_MonoBehaviour
     protected virtual void LoadModel()
     {
         if (this.model != null) return;
-        this.model = transform.Find("Asteroid 1");
+        this.model = transform.Find("Model");
         Debug.Log(transform.name + ": LoadModel", gameObject);
     }
 

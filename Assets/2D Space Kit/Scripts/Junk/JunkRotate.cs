@@ -13,6 +13,6 @@ public class JunkRotate : JunkAbstract
     protected virtual void Rotating()
     {
         Vector3 eulers = new Vector3(0, 0, 1);
-        this.JunkCtrl.Model.Rotate(eulers*this.speed*Time.fixedDeltaTime);
+        this.JunkCtrl.Model.Rotate(eulers * this.speed * Time.fixedDeltaTime);
     }
 }
