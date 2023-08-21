@@ -35,6 +35,8 @@ public class DestroyerShooting : MonoBehaviour
         if (newBullet == null) return;
 
         newBullet.gameObject.SetActive(true);
+        BulletCtrl bulletCtrl = newBullet.GetComponent<BulletCtrl>();
+        bulletCtrl.SetShooter(transform.parent);
         
         Debug.Log("Shooting");
     }
