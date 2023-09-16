@@ -13,6 +13,8 @@ public class DamageSender : NAM_MonoBehaviour
         damageReceiver = obj.GetComponentInChildren<DamageReceiver>();
         if (damageReceiver == null) return;
         this.Send(damageReceiver);
+
+        this.CreateImpactFX();
     }
 
     public virtual void Send(DamageReceiver damageReceiver)
@@ -20,4 +22,19 @@ public class DamageSender : NAM_MonoBehaviour
         damageReceiver.Deduct(this.damage);
     }
 
+    
+    protected virtual void CreateImpactFX()
+    {
+        string fxName = this.GetImpactFX();
+
+        Vector3 hitPos = transform.position;
+        Quaternion hitRot = transform.rotation;
+        Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, hitRot);
+        fxImpact.gameObject.SetActive(true);
+    }
+
+    protected virtual string GetImpactFX()
+    {
+        return FXSpawner.impactOne;
+    }
 }
