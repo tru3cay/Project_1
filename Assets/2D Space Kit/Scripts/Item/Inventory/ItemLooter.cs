@@ -17,7 +17,7 @@ public class ItemLooter : NAM_MonoBehaviour
         base.LoadComponents();
         this.LoadInventory();
         this.LoadTrigger();
-        this.LoadRigibody();
+        this.LoadRigidbody();
     }
 
     protected virtual void LoadInventory()
@@ -29,16 +29,16 @@ public class ItemLooter : NAM_MonoBehaviour
 
     protected virtual void LoadTrigger()
     {
-        if(this._collider != null) return;
+        if (this._collider != null) return;
         this._collider = transform.GetComponent<SphereCollider>();
         this._collider.isTrigger = true;
-        this._collider.radius = 0.3f;
-        Debug.LogWarning(transform.name + " LoadTrigger", gameObject );
+        this._collider.radius = 0.1f;
+        Debug.LogWarning(transform.name + " LoadTrigger", gameObject);
     }
 
-    protected virtual void LoadRigibody()
+    protected virtual void LoadRigidbody()
     {
-        if(this._rigidbody != null) return;
+        if (this._rigidbody != null) return;
         this._rigidbody = transform.GetComponent<Rigidbody>();
         this._rigidbody.useGravity = false;
         this._rigidbody.isKinematic = true;
@@ -56,5 +56,6 @@ public class ItemLooter : NAM_MonoBehaviour
         {
             itemPickupable.Picked();
         }
+
     }
 }
