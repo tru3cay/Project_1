@@ -5,7 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 
-public class ItemPickupable : JunkAbstract
+public class ItemPickupable : ItemAbstract
 {
     [SerializeField] protected SphereCollider _collider;
 
@@ -50,7 +50,7 @@ public class ItemPickupable : JunkAbstract
 
     public virtual void Picked()
     {
-        this.junkCtrl.JunkDespawn.DespawnObject();
+        this.itemCtrl.ItemDespawn.DespawnObject();
     }
 
 }

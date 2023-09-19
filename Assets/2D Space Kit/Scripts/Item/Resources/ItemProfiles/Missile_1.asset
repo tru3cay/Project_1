@@ -16,3 +16,9 @@ MonoBehaviour:
   itemType: 2
   itemName: Missile One
   defaultMaxStack: 7
+  upgradeLevels:
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: b42a0051063fcd6429c33bfd1db23357, type: 2}
+      itemCount: 1
+    - itemProfile: {fileID: 11400000, guid: de331b9e2113810439046c80f0920380, type: 2}
+      itemCount: 1

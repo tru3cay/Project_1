@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Inventory : NAM_MonoBehaviour
 {
-    [SerializeField] protected int maxSlot = 70;
+    [SerializeField] protected int maxSlot = 7;
     [SerializeField] protected List<ItemInventory> items;
+    public List<ItemInventory> Items => items;
 
     protected override void Start()
     {
         base.Start();
-        //this.AddItem(ItemCode.ItemOne, 0);
-        //this.AddItem(ItemCode.ItemTwo, 0);
+        this.AddItem(ItemCode.MissileOne, 1);
+        this.AddItem(ItemCode.ItemOne, 3);
+        this.AddItem(ItemCode.ItemTwo, 3);
     }
-    /*
+
     public virtual bool AddItem(ItemCode itemCode, int addCount)
     {
 
@@ -62,7 +64,6 @@ public class Inventory : NAM_MonoBehaviour
         return false;
     }
 
-
     protected virtual int GetMaxStack(ItemInventory itemInventory)
     {
         if (itemInventory == null) return 0;
@@ -108,41 +109,113 @@ public class Inventory : NAM_MonoBehaviour
             itemProfile = itemProfile,
             maxStack = itemProfile.defaultMaxStack
         };
+
         return itemInventory;
     }
-    */
 
-
-
-
-
-    
-    public virtual bool AddItem(ItemCode itemCode, int addCount)
+    public virtual bool ItemCheck(ItemCode itemCode, int numberCheck)
     {
-        ItemInventory itemInventory = this.GetItemByCode(itemCode);
+        int totalCount = this.ItemTotalCount(itemCode);
+        return totalCount >= numberCheck;
+    }
+
+    public virtual int ItemTotalCount(ItemCode itemCode)
+    {
+        int totalCount = 0;
+        foreach (ItemInventory itemInventory in this.items)
+        {
+            if (itemInventory.itemProfile.itemCode != itemCode) continue;
+            totalCount += itemInventory.itemCount;
+        }
+
+        return totalCount;
+    }
+
+    public virtual void DeductItem(ItemCode itemCode, int deductCount)
+    {
+        ItemInventory itemInventory;
+        int deduct;
+        for (int i = this.items.Count-1; i >= 0; i--)
+        {
+            if (deductCount <= 0) break;
+
+            itemInventory = this.items[i];
+            if (itemInventory.itemProfile.itemCode != itemCode) continue;
+
+            if (deductCount > itemInventory.itemCount)
+            {
+                deduct = itemInventory.itemCount;
+                deductCount -= itemInventory.itemCount;
+            }
+            else
+            {
+                deduct = deductCount;
+                deductCount = 0;
+            }
+
+            itemInventory.itemCount -= deduct;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+    protected virtual bool AddResource(ItemInventory itemInventory, int addCount)
+    {
+        Debug.Log("AddResource");
 
         int newCount = itemInventory.itemCount + addCount;
-        if(newCount > itemInventory.maxStack) return false;
+        if (newCount > itemInventory.maxStack) return false;
 
         itemInventory.itemCount = newCount;
+        return true;
+    }
+
+    public virtual bool AddEquiment(ItemInventory itemInventory)
+    {
+        Debug.Log("AddEquiment");
+        itemInventory.itemCount = 1;
+        return true;
+    }
+
+    public virtual bool DeductItem(ItemCode itemCode, int addCount)
+    {
+        ItemInventory itemInventory = this.GetItemByCode(itemCode);
+        int newCount = itemInventory.itemCount - addCount;
+        if (newCount < 0) return false;
+
+        itemInventory.itemCount = newCount;
+        return true;
+    }
+
+    public virtual bool TryDeductItem(ItemCode itemCode, int addCount)
+    {
+        ItemInventory itemInventory = this.GetItemByCode(itemCode);
+        int newCount = itemInventory.itemCount - addCount;
+        if (newCount < 0) return false;
         return true;
     }
 
     public virtual ItemInventory GetItemByCode(ItemCode itemCode)
     {
         ItemInventory itemInventory = this.items.Find((item) => item.itemProfile.itemCode == itemCode);
-        if(itemInventory == null)
-        {
-            itemInventory = this.AddEmptyProfile(itemCode);
-            //return itemInventory;
-        }
+        if (itemInventory == null) itemInventory = this.AddEmptyProfile(itemCode);
         return itemInventory;
     }
 
-    public virtual ItemInventory AddEmptyProfile(ItemCode itemCode)
+    protected virtual ItemInventory AddEmptyProfile(ItemCode itemCode)
     {
-        var profiles = Resources.LoadAll("ItemProfiles", typeof(ItemProfileSO));
-        foreach (ItemProfileSO profile in profiles) 
+        var profiles = Resources.LoadAll("Item", typeof(ItemProfileSO));
+        foreach (ItemProfileSO profile in profiles)
         {
             if (profile.itemCode != itemCode) continue;
             ItemInventory itemInventory = new ItemInventory
@@ -155,5 +228,6 @@ public class Inventory : NAM_MonoBehaviour
         }
         return null;
     }
-    
+
+    */
 }
