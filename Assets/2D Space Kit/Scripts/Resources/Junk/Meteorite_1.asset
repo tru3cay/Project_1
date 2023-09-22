@@ -15,7 +15,7 @@ MonoBehaviour:
   junkName: Junk
   hpMax: 2
   dropList:
-  - itemSO: {fileID: 11400000, guid: 4a38a3829078b334ba19122a551e3da8, type: 2}
+  - itemSO: {fileID: 11400000, guid: 68fd1c0a7a82fa442b24775acc1cc0f6, type: 2}
     dropRate: 100000
     minDrop: 0
     maxDrop: 0

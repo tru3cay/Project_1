@@ -9,8 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8d44055453b484cb4501788546277b, type: 3}
+  m_Script: {fileID: 11500000, guid: 73d732766e8895847a887f517823bb42, type: 3}
   m_Name: Missile_1
   m_EditorClassIdentifier: 
   itemCode: 3
-  itemName: Missile_1
+  itemType: 2
+  itemName: Missile One
+  defaultMaxStack: 1
+  upgradeLevels:
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: 68fd1c0a7a82fa442b24775acc1cc0f6, type: 2}
+      itemCount: 1
+    - itemProfile: {fileID: 11400000, guid: 74307ef0bf52d3e4a8842120cbd4d1d4, type: 2}
+      itemCount: 1
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: 68fd1c0a7a82fa442b24775acc1cc0f6, type: 2}
+      itemCount: 2
+    - itemProfile: {fileID: 11400000, guid: 74307ef0bf52d3e4a8842120cbd4d1d4, type: 2}
+      itemCount: 2
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: 68fd1c0a7a82fa442b24775acc1cc0f6, type: 2}
+      itemCount: 3
+    - itemProfile: {fileID: 11400000, guid: 74307ef0bf52d3e4a8842120cbd4d1d4, type: 2}
+      itemCount: 3

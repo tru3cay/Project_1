@@ -946,6 +946,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDespawn: {fileID: 1585502488}
+  itemInventory:
+    itemProfile: {fileID: 11400000, guid: 68fd1c0a7a82fa442b24775acc1cc0f6, type: 2}
+    itemCount: 1
+    maxStack: 7
+    upgradeLevel: 0
 --- !u!1 &335126355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,6 +1342,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDespawn: {fileID: 1426922727}
+  itemInventory:
+    itemProfile: {fileID: 11400000, guid: 74307ef0bf52d3e4a8842120cbd4d1d4, type: 2}
+    itemCount: 1
+    maxStack: 7
+    upgradeLevel: 0
 --- !u!1 &470427359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,7 +2235,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &957366450
 GameObject:
@@ -2586,6 +2596,51 @@ MonoBehaviour:
   - {fileID: 6582064041121122319}
   - {fileID: 1011887335}
   poolObjs: []
+--- !u!1 &1108391197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1108391198}
+  - component: {fileID: 1108391199}
+  m_Layer: 0
+  m_Name: InventoryDrop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1108391198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108391197}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2122359270}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1108391199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108391197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13588440273466d4197971ef0bfd959d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 2122359271}
 --- !u!1 &1132818990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,6 +2783,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDespawn: {fileID: 489079094}
+  itemInventory:
+    itemProfile: {fileID: 11400000, guid: f7defc5c8878f564f90faad2b6dba02f, type: 2}
+    itemCount: 1
+    maxStack: 7
+    upgradeLevel: 0
 --- !u!1 &1242575406
 GameObject:
   m_ObjectHideFlags: 0
@@ -4225,6 +4285,7 @@ Transform:
   m_Children:
   - {fileID: 903771447}
   - {fileID: 2062632146}
+  - {fileID: 1108391198}
   m_Father: {fileID: 180651320}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
