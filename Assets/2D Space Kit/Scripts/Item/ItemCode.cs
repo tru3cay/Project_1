@@ -16,7 +16,7 @@ public class ItemCodeParser {
         {
             return (ItemCode)System.Enum.Parse(typeof(ItemCode), itemName);
         }
-        catch(ArgumentException e)
+        catch(ArgumentException)
         {
             return ItemCode.NoItem;
         }
