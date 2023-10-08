@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyerShootingByDistance : DestroyerShooting
+public class DestroyerShootingByDistance : ObjShooting
 {
     [SerializeField] protected Transform target;
     [SerializeField] protected float minDis = 3f;

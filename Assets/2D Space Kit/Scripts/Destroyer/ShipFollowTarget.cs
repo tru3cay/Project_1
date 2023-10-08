@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipFollowTarget : DestroyerMovement
+public class ShipFollowTarget : ObjMovement
 {
     [SerializeField] protected Transform target;
     protected override void FixedUpdate()

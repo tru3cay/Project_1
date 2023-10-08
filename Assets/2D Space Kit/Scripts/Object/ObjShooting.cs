@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class DestroyerShooting : NAM_MonoBehaviour
+public abstract class ObjShooting : NAM_MonoBehaviour
 {
     [SerializeField] protected bool isShooting = false;
     [SerializeField] protected Transform bulletPrefab;
