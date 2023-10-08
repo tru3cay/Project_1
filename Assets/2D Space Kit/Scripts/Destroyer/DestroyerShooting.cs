@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyerShooting : MonoBehaviour
+public abstract class DestroyerShooting : NAM_MonoBehaviour
 {
     [SerializeField] protected bool isShooting = false;
     [SerializeField] protected Transform bulletPrefab;
@@ -41,9 +41,5 @@ public class DestroyerShooting : MonoBehaviour
         Debug.Log("Shooting");
     }
 
-    protected virtual bool IsShooting()
-    {
-        this.isShooting = InputManager.Instance.OnFiring == 1;
-        return isShooting;
-    }
+    protected abstract bool IsShooting();
 }

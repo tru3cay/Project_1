@@ -10,8 +10,8 @@ public class JunkCtrl : NAM_MonoBehaviour
     [SerializeField] protected Transform model;
     public Transform Model { get => model; }
 
-    [SerializeField] protected JunkSO junkSO;
-    public JunkSO JunkSO => junkSO;
+    [SerializeField] protected ShootableObjectSO junkSO;
+    public ShootableObjectSO JunkSO => junkSO;
 
     protected override void LoadComponents()
     {
@@ -38,8 +38,8 @@ public class JunkCtrl : NAM_MonoBehaviour
     protected virtual void LoadJunkSO()
     {
         if(this.junkSO != null) return;
-        string resPath = "Junk/" + transform.name;
-        this.junkSO = Resources.Load<JunkSO>(resPath);
+        string resPath = "ShootableObject/Junk/" + transform.name;
+        this.junkSO = Resources.Load<ShootableObjectSO>(resPath);
         Debug.LogWarning(transform.name + ": LoadJunkSO" + resPath, gameObject);
     }
 }
