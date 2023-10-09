@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class ShootableObjectCtrl : NAM_MonoBehaviour
 {
+    [Header("Shootable Object")]
     [SerializeField] protected Transform model;
     public Transform Model => model;
 
@@ -16,6 +17,12 @@ public abstract class ShootableObjectCtrl : NAM_MonoBehaviour
     [SerializeField] protected ObjShooting objShooting;
     public ObjShooting ObjShooting => objShooting;
 
+    [SerializeField] protected ObjMovement objMovement;
+    public ObjMovement ObjMovement => objMovement;
+
+    [SerializeField] protected ObjLookAtTarget objLookAtTarget;
+    public ObjLookAtTarget ObjLookAtTarget => objLookAtTarget;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -23,6 +30,8 @@ public abstract class ShootableObjectCtrl : NAM_MonoBehaviour
         this.LoadDespawn();
         this.LoadSO();
         this.LoadObjShooting();
+        this.LoadObjMovement();
+        this.LoadObjLookAtTarget();
     }
 
     protected virtual void LoadModel()
@@ -39,6 +48,20 @@ public abstract class ShootableObjectCtrl : NAM_MonoBehaviour
         Debug.LogWarning(transform.name + ": LoadObjShooting", gameObject);
     }
 
+    protected virtual void LoadObjMovement()
+    {
+        if (this.objMovement != null) return;
+        this.objMovement = GetComponentInChildren<ObjMovement>();
+        Debug.LogWarning(transform.name + ": LoadObjMovement", gameObject);
+    }
+
+    protected virtual void LoadObjLookAtTarget()
+    {
+        if (this.objLookAtTarget != null) return;
+        this.objLookAtTarget = GetComponentInChildren<ObjLookAtTarget>();
+        Debug.LogWarning(transform.name + ": LoadObjLookAtTarget", gameObject);
+    }
+
     protected virtual void LoadDespawn()
     {
         if (this.despawn != null) return;
@@ -51,7 +74,7 @@ public abstract class ShootableObjectCtrl : NAM_MonoBehaviour
         if (this.shootableObject != null) return;
         string resPath = "ShootableObject/" + this.GetObjectTypeString() + "/" + transform.name;
         this.shootableObject = Resources.Load<ShootableObjectSO>(resPath);
-        Debug.LogWarning(transform.name + ": LoadSO " + resPath, gameObject);
+        Debug.LogWarning(transform.name + ": LoadJunkSO " + resPath, gameObject);
     }
 
     protected abstract string GetObjectTypeString();
