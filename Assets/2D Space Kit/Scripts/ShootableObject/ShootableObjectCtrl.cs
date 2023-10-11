@@ -23,6 +23,9 @@ public abstract class ShootableObjectCtrl : NAM_MonoBehaviour
     [SerializeField] protected ObjLookAtTarget objLookAtTarget;
     public ObjLookAtTarget ObjLookAtTarget => objLookAtTarget;
 
+    [SerializeField] protected Spawner spawner;
+    public Spawner Spawner => spawner;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -32,6 +35,14 @@ public abstract class ShootableObjectCtrl : NAM_MonoBehaviour
         this.LoadObjShooting();
         this.LoadObjMovement();
         this.LoadObjLookAtTarget();
+        this.LoadSpawner();
+    }
+
+    protected virtual void LoadSpawner()
+    {
+        if (this.spawner != null) return;
+        this.spawner = transform.parent?.parent?.GetComponent<Spawner>();
+        Debug.LogWarning(transform.name + ": LoadSpawner", gameObject);
     }
 
     protected virtual void LoadModel()
@@ -78,4 +89,9 @@ public abstract class ShootableObjectCtrl : NAM_MonoBehaviour
     }
 
     protected abstract string GetObjectTypeString();
+
+    public void SetSpanwer(Spawner spawner)
+    {
+        this.spawner = spawner;
+    }
 }

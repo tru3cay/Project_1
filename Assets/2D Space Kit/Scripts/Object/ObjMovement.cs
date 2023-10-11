@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjMovement : NAM_MonoBehaviour
 {
     [SerializeField] protected Vector3 targetPosition;
-    [SerializeField] protected float speed = 0.01f;
+    [SerializeField] protected float speed = 0.001f;
     [SerializeField] protected float distance = 1f;
     [SerializeField] protected float minDistance = 1f;
 

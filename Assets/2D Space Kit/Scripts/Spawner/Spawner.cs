@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class Spawner : NAM_MonoBehaviour
@@ -36,7 +37,7 @@ public abstract class Spawner : NAM_MonoBehaviour
 
         this.HidePrefabs();
 
-        Debug.Log(transform.name + " :LoadPrefabs", gameObject);
+        Debug.LogWarning(transform.name + " :LoadPrefabs", gameObject);
     }
 
     protected virtual void HidePrefabs()
@@ -66,6 +67,7 @@ public abstract class Spawner : NAM_MonoBehaviour
 
         newPrefab.parent = this.holder;
         this.spawnedCount++;
+
         return newPrefab;
     }
 
@@ -105,5 +107,10 @@ public abstract class Spawner : NAM_MonoBehaviour
     {
         int rand = Random.Range(0, this.prefabs.Count);
         return this.prefabs[rand];
+    }
+
+    public virtual void Hold(Transform obj)
+    {
+        obj.parent = this.holder;
     }
 }
